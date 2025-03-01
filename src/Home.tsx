@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchCandidates } from "./utils/githubAPI"; 
+import { fetchCandidates } from "./utils/githubAPI";
 import SearchBar from "./components/SearchBar";
 
 type Candidate = {
@@ -13,8 +13,9 @@ const Home = () => {
   const [candidates, setCandidates] = useState<Candidate[]>([]);
 
   const handleSearch = async (query: string) => {
+    console.log("Search Query:", query);  // ✅ Log the query input
     const results = await fetchCandidates(query);
-    console.log("API Response:", results); // Logs the API response
+    console.log("API Results:", results);  // ✅ Log API response
     setCandidates(results);
   };
   

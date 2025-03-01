@@ -5,10 +5,11 @@ export const fetchCandidates = async (query: string) => {
   try {
     const response = await fetch(`${GITHUB_API_URL}?q=${query}`, {
       headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
+        Authorization: `token ${GITHUB_TOKEN}`,
         Accept: "application/vnd.github.v3+json",
       },
     });
+    
 
     if (!response.ok) {
       throw new Error(`GitHub API Error: ${response.statusText}`);
