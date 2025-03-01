@@ -11,21 +11,31 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     setSearchQuery(event.target.value);
   };
 
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      onSearch(searchQuery);
+      setSearchQuery(""); // Clear input after search
+    }
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      onSearch(searchQuery); // ✅ Calls search function with stored input
+      handleSearch();
     }
   };
 
   return (
-    <input
-      type="text"
-      placeholder="Search for candidates..."
-      value={searchQuery}
-      onChange={handleChange}
-      onKeyDown={handleKeyDown} // ✅ Listens for Enter key press
-      className="search-bar"
-    />
+    <div className="search-container">
+      <input
+        type="text"
+        placeholder="Search for candidates..."
+        value={searchQuery}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        className="search-bar"
+      />
+      <button onClick={handleSearch} className="search-button">Search</button>
+    </div>
   );
 };
 

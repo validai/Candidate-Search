@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { fetchCandidates } from "./utils/githubAPI";
+import { fetchCandidates } from "./api/API";
 import SearchBar from "./components/SearchBar";
+
+
 
 type Candidate = {
   id: number;
