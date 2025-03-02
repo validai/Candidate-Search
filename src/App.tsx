@@ -17,17 +17,14 @@ const Layout = () => {
 };
 
 const App = () => {
-  console.log(
-    "Environment Variable (VITE_GITHUB_TOKEN):",
-    import.meta.env.VITE_GITHUB_TOKEN
-  );
+  console.log("Environment Variable (VITE_GITHUB_TOKEN):", import.meta.env.VITE_GITHUB_TOKEN);
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<CandidateSearch />} />
         <Route path="search" element={<CandidateSearch />} />
-        <Route path="saved" element={<SavedCandidates />} />
+        <Route path="potential-candidates" element={<SavedCandidates />} /> 
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>
