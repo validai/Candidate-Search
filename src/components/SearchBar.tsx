@@ -14,7 +14,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const handleSearch = () => {
     if (searchQuery.trim()) {
       onSearch(searchQuery);
-      setSearchQuery(""); // Clear input after search
+      setSearchQuery(""); 
     }
   };
 

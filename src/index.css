@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Links */
+
 a {
   font-weight: 500;
   color: #fff;
@@ -23,7 +23,7 @@ a:hover {
   color: #ddd;
 }
 
-/* Page Layout */
+
 body {
   background: linear-gradient(180deg, rgb(32, 44, 136) 0%, rgba(9, 9, 121, 1) 15%, rgba(0, 2, 18, 1) 100%);
   background-size: cover;
@@ -38,7 +38,6 @@ body {
   min-height: 100vh;
 }
 
-/* Headings */
 h1 {
   font-size: 3em;
   font-weight: 700;
@@ -46,7 +45,7 @@ h1 {
   margin-top: 1rem;
 }
 
-/* Navbar */
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -86,12 +85,12 @@ h1 {
   font-weight: 700;
 }
 
-/* Ensures content doesn't go under navbar */
+
 .main-container {
   padding-top: 90px;
 }
 
-/* Candidate Card */
+
 .candidate-card {
   width: 350px;
   border-radius: 12px;
@@ -108,7 +107,7 @@ h1 {
   transform: scale(1.05);
 }
 
-/* Candidate Image */
+
 .candidate-image {
   width: 100%;
   height: auto;
@@ -144,14 +143,14 @@ h1 {
   text-decoration: underline;
 }
 
-/* Button Container */
+
 .button-container {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
 }
 
-/* Action Buttons */
+
 .action-button {
   width: 60px;
   height: 60px;
@@ -167,7 +166,7 @@ h1 {
   margin: 0 1rem;
 }
 
-/* Reject & Accept Buttons */
+
 .reject-button {
   background-color: #d32f2f;
   color: white;
@@ -194,7 +193,6 @@ h1 {
   background-color: #2e7d32;
 }
 
-/* Candidate Search Page */
 .candidate-search {
   display: flex;
   flex-direction: column;
@@ -203,7 +201,7 @@ h1 {
   text-align: center;
 }
 
-/* Search Bar */
+
 .search-bar {
   width: 60%;
   max-width: 400px;
@@ -214,7 +212,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Candidate Results Grid */
 .results-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -224,14 +221,13 @@ h1 {
   margin-top: 20px;
 }
 
-/* No results */
 .no-results {
   font-size: 1.2em;
   color: #bbb;
   margin-top: 20px;
 }
 
-/* Saved Candidates Table */
+
 .saved-candidates {
   text-align: center;
   padding: 2rem;
@@ -258,7 +254,7 @@ img {
   border-radius: 50%;
 }
 
-/* Candidate Table Styling */
+
 .candidates-table {
   width: 100%;
   border-collapse: collapse;
@@ -280,14 +276,13 @@ img {
   background-color: #111;
 }
 
-/* Candidate Avatar */
 .candidate-avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-/* Email Link */
+
 .email-link {
   color: #0080ff;
   text-decoration: none;
@@ -297,7 +292,6 @@ img {
   text-decoration: underline;
 }
 
-/* Reject Button */
 .reject-btn {
   background-color: red;
   color: white;
