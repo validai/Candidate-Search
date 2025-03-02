@@ -1,20 +1,44 @@
-import { useState } from "react";
-import { searchGithub } from "../api/API";
+import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import CandidateCard from "../components/CandidateCard";
-import { Candidate } from "../interfaces/Candidate.interface"; // ✅ Import type
+import { searchGithub } from "../api/API";
+import { Candidate } from "../interfaces/Candidate.interface";
 
 const CandidateSearch = () => {
-  const [searchResults, setSearchResults] = useState<Candidate[]>([]); // ✅ Correct type
+  const [searchResults, setSearchResults] = useState<Candidate[]>([]);
+  const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
+
+  useEffect(() => {
+    const storedCandidates: Candidate[] = JSON.parse(
+      localStorage.getItem("savedCandidates") || "[]"
+    );
+    setSavedCandidates(storedCandidates);
+  }, []);
+
+  useEffect(() => {
+    if (savedCandidates.length > 0) {  // Prevent overwriting with empty array on first load
+      localStorage.setItem("savedCandidates", JSON.stringify(savedCandidates));
+      console.log("LocalStorage updated:", localStorage.getItem("savedCandidates"));
+    }
+  }, [savedCandidates]);  
 
   const handleSearch = async (query: string) => {
-    if (!query) return;
     try {
-      const results: Candidate[] = await searchGithub(query); // ✅ Ensuring type safety
+      const results = await searchGithub(query);
       setSearchResults(results);
     } catch (error) {
       console.error("Error fetching candidates:", error);
     }
+  };
+
+  const addCandidate = (candidate: Candidate) => {
+    if (!savedCandidates.some((c) => c.id === candidate.id)) {
+      setSavedCandidates([...savedCandidates, candidate]);
+    }
+  };
+
+  const removeCandidate = (candidateId: number) => {
+    setSavedCandidates(savedCandidates.filter((c) => c.id !== candidateId));
   };
 
   return (
@@ -25,14 +49,18 @@ const CandidateSearch = () => {
         {searchResults.length > 0 ? (
           searchResults.map((candidate) => (
             <CandidateCard
-              key={candidate.id}
-              avatar_url={candidate.avatar_url}
-              login={candidate.login}
-              location={candidate.location}
-              email={candidate.email}
-              company={candidate.company}
-              bio={candidate.bio}
-            />
+            key={candidate.id}
+            id={candidate.id} 
+            avatar_url={candidate.avatar_url}
+            login={candidate.login}
+            location={candidate.location}
+            email={candidate.email}
+            company={candidate.company}
+            bio={candidate.bio}
+            onAdd={() => addCandidate(candidate)}
+            onRemove={() => removeCandidate(candidate.id)}
+/>
+
           ))
         ) : (
           <p className="no-results">Search for candidates above.</p>
