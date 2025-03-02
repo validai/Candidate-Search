@@ -10,8 +10,8 @@ const Nav = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/potential-candidates" className="nav-link">
-            Potential Candidates
+          <Link to="/saved-candidates" className="nav-link">
+            Saved Candidates
           </Link>
         </li>
       </ul>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100..900&display=swap');
 
 :root {
   font-family: 'Inter Tight', system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Links */
 a {
   font-weight: 500;
   color: #fff;
@@ -22,16 +23,12 @@ a:hover {
   color: #ddd;
 }
 
+/* Page Layout */
 body {
-  background: linear-gradient(
-    180deg,
-    rgb(32, 44, 136) 0%,
-    rgba(9, 9, 121, 1) 15%,
-    rgba(0, 2, 18, 1) 100%
-  );
+  background: linear-gradient(180deg, rgb(32, 44, 136) 0%, rgba(9, 9, 121, 1) 15%, rgba(0, 2, 18, 1) 100%);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -41,6 +38,7 @@ body {
   min-height: 100vh;
 }
 
+/* Headings */
 h1 {
   font-size: 3em;
   font-weight: 700;
@@ -48,12 +46,12 @@ h1 {
   margin-top: 1rem;
 }
 
-/* Navbar Styling */
+/* Navbar */
 .nav {
   display: flex;
-  justify-content: space-between; /* Ensures proper alignment */
+  justify-content: space-between;
   align-items: center;
-  position: fixed;  /* ✅ Keeps navbar at the top */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -62,7 +60,6 @@ h1 {
   z-index: 1000;
 }
 
-/* Navbar List */
 .nav ul {
   display: flex;
   list-style: none;
@@ -70,12 +67,10 @@ h1 {
   padding: 0;
 }
 
-/* Navbar Items */
 .nav-item {
   padding: 0 1rem;
 }
 
-/* Navbar Links */
 .nav-link {
   color: #fff;
   text-decoration: none;
@@ -91,7 +86,7 @@ h1 {
   font-weight: 700;
 }
 
-/* Adjusts page content so it doesn't go under the navbar */
+/* Ensures content doesn't go under navbar */
 .main-container {
   padding-top: 90px;
 }
@@ -172,9 +167,15 @@ h1 {
   margin: 0 1rem;
 }
 
+/* Reject & Accept Buttons */
 .reject-button {
   background-color: #d32f2f;
   color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 50%;
 }
 .reject-button:hover {
   background-color: #b71c1c;
@@ -183,6 +184,11 @@ h1 {
 .accept-button {
   background-color: #388e3c;
   color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 50%;
 }
 .accept-button:hover {
   background-color: #2e7d32;
@@ -193,7 +199,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 120px; /* Ensures content starts below navbar */
+  margin-top: 120px;
   text-align: center;
 }
 
@@ -218,9 +224,89 @@ h1 {
   margin-top: 20px;
 }
 
-/* Message when no results are found */
+/* No results */
 .no-results {
   font-size: 1.2em;
   color: #bbb;
   margin-top: 20px;
+}
+
+/* Saved Candidates Table */
+.saved-candidates {
+  text-align: center;
+  padding: 2rem;
+}
+
+table {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid white;
+}
+
+th {
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+img {
+  border-radius: 50%;
+}
+
+/* Candidate Table Styling */
+.candidates-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.candidates-table th,
+.candidates-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #444;
+}
+
+.candidates-table tr:nth-child(even) {
+  background-color: #222;
+}
+
+.candidates-table tr:nth-child(odd) {
+  background-color: #111;
+}
+
+/* Candidate Avatar */
+.candidate-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* Email Link */
+.email-link {
+  color: #0080ff;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
+
+/* Reject Button */
+.reject-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.reject-btn:hover {
+  background-color: darkred;
 }

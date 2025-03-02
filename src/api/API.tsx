@@ -2,9 +2,7 @@ import { Candidate } from "../interfaces/Candidate.interface";
 
 const GITHUB_API_URL = "https://api.github.com";
 
-/**
- * Function to search GitHub users by query
- */
+
 export const searchGithub = async (query: string): Promise<Candidate[]> => {
   try {
     const response = await fetch(`${GITHUB_API_URL}/search/users?q=${query}`, {
@@ -20,7 +18,7 @@ export const searchGithub = async (query: string): Promise<Candidate[]> => {
 
     const data = await response.json();
 
-    // Fetch detailed user info
+
     const usersWithDetails: Candidate[] = await Promise.all(
       data.items.map(async (user: any) => {
         try {
@@ -32,7 +30,7 @@ export const searchGithub = async (query: string): Promise<Candidate[]> => {
           });
 
           if (!userResponse.ok) return null;
-          return (await userResponse.json()) as Candidate; // ✅ Ensure response matches Candidate type
+          return (await userResponse.json()) as Candidate; 
         } catch (error) {
           console.error(`Error fetching details for user ${user.login}:`, error);
           return null;
@@ -40,23 +38,23 @@ export const searchGithub = async (query: string): Promise<Candidate[]> => {
       })
     );
 
-    return usersWithDetails.filter((user) => user !== null); // ✅ Remove null entries
+    return usersWithDetails.filter((user) => user !== null); 
   } catch (error) {
     console.error("Error searching GitHub users:", error);
     return [];
   }
 };
 
-/**
- * Function to fetch detailed candidate data
- */
+
+
+
 export const fetchCandidates = async (query: string): Promise<Candidate[]> => {
   return await searchGithub(query);
 };
 
-/**
- * Function to get details about a specific GitHub user
- */
+
+
+
 export const searchGithubUser = async (username: string): Promise<Candidate | null> => {
   try {
     const response = await fetch(`${GITHUB_API_URL}/users/${username}`, {
@@ -70,7 +68,7 @@ export const searchGithubUser = async (username: string): Promise<Candidate | nu
       throw new Error(`GitHub API error: ${response.statusText}`);
     }
 
-    return (await response.json()) as Candidate; // ✅ Ensure response matches Candidate type
+    return (await response.json()) as Candidate; 
   } catch (error) {
     console.error(`Error fetching GitHub user (${username}):`, error);
     return null;
