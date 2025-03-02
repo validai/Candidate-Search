@@ -1,40 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["vite/client"],
+    "noEmit": true,
+    "jsx": "react-jsx",
 
-    //Enable absolute imports
-    "baseUrl": "./src",
-    "paths": {
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"]
-    },
-
-    //Output settings (not needed for Vite but good for future expansion)
-    "outDir": "dist",
-    "rootDir": "src",
-
-    //Source Maps (useful for debugging)
-    "sourceMap": true,
-
-    //Support for dynamic imports
-    "allowSyntheticDefaultImports": true,
-
-    //Enable decorators (if needed in the future)
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-
-  "include": ["src"],
-
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"]
 }
