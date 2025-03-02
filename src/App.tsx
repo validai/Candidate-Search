@@ -1,5 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
+import CandidateSearch from "./pages/CandidateSearch";
+import SavedCandidates from "./pages/SavedCandidates";
+import ErrorPage from "./pages/ErrorPage";
 import { Outlet } from "react-router-dom";
 import Nav from "./components/Nav";
 
@@ -18,16 +21,15 @@ const App = () => {
   console.log("Environment Variable (VITE_GITHUB_TOKEN):", import.meta.env.VITE_GITHUB_TOKEN);
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-        </Route>
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="search" element={<CandidateSearch />} />
+        <Route path="saved" element={<SavedCandidates />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
+    </Routes>
   );
 };
 
 export default App;
-
-
