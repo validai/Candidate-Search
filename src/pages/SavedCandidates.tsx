@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import "./SavedCandidates.css";
+import "../index.css";
+
 
 interface Candidate {
   id: number;
