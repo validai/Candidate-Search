@@ -19,7 +19,9 @@ const CandidateCard: React.FC<CandidateProps> = ({
 }) => {
   return (
     <div className="candidate-card">
-      <img src={avatar_url} alt={login} className="candidate-avatar" />
+      <div className="candidate-image">
+        <img src={avatar_url} alt={login} />
+      </div>
       <div className="candidate-details">
         <h3>{login} <em>({login})</em></h3>
         {location && <p><strong>Location:</strong> {location}</p>}

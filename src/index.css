@@ -15,11 +15,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #fff;
+  text-decoration: none;
 }
 a:hover {
-  color: #535bf2;
+  color: #ddd;
 }
 
 body {
@@ -30,91 +30,197 @@ body {
     rgba(0, 2, 18, 1) 100%
   );
   background-size: cover;
-  background-repeat: no-repeat no-repeat;
+  background-repeat: no-repeat;
   background-position: center center;
   margin: 0;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   min-width: 320px;
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 1rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-main {
-  color: #fff;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-tr {
-  border-radius: 10px;
-  background-color: #000;
-  color: white;
-}
-
-tbody tr:nth-child(odd) {
-  background-color: #333333;
-}
-
+/* Navbar Styling */
 .nav {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between; /* Ensures proper alignment */
+  align-items: center;
+  position: fixed;  /* ✅ Keeps navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 50, 0.8);
   padding: 1em 2em;
+  z-index: 1000;
 }
 
-.nav-item {
-  padding: 0 0.5rem;
+/* Navbar List */
+.nav ul {
+  display: flex;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
+/* Navbar Items */
+.nav-item {
+  padding: 0 1rem;
+}
+
+/* Navbar Links */
 .nav-link {
   color: #fff;
   text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s;
 }
 
-.active {
+.nav-link:hover {
+  color: #ddd;
+}
+
+.nav-link.active {
   font-weight: 700;
 }
 
-.table {
-  width: 80vw;
-  table-layout: fixed;
+/* Adjusts page content so it doesn't go under the navbar */
+.main-container {
+  padding-top: 90px;
+}
+
+/* Candidate Card */
+.candidate-card {
+  width: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: black;
+  color: white;
+  text-align: center;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.candidate-card:hover {
+  transform: scale(1.05);
+}
+
+/* Candidate Image */
+.candidate-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.candidate-details {
+  padding: 1.5rem;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.candidate-details h3 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.candidate-details p {
+  font-size: 0.9em;
+  color: #ccc;
+  margin: 0.5rem 0;
+}
+
+.candidate-details a {
+  color: #4ea8de;
+  text-decoration: none;
+}
+
+.candidate-details a:hover {
+  text-decoration: underline;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Action Buttons */
+.action-button {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.8em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+}
+
+.reject-button {
+  background-color: #d32f2f;
+  color: white;
+}
+.reject-button:hover {
+  background-color: #b71c1c;
+}
+
+.accept-button {
+  background-color: #388e3c;
+  color: white;
+}
+.accept-button:hover {
+  background-color: #2e7d32;
+}
+
+/* Candidate Search Page */
+.candidate-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px; /* Ensures content starts below navbar */
+  text-align: center;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 60%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+/* Candidate Results Grid */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  width: 80%;
+  margin-top: 20px;
+}
+
+/* Message when no results are found */
+.no-results {
+  font-size: 1.2em;
+  color: #bbb;
+  margin-top: 20px;
 }
